@@ -1,14 +1,14 @@
 {{#queryParams}}
 {{#vendorExtensions.x-is-account-sid}}
 if params != nil && params.PathAccountSid != nil {
-    path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+    path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 } else {
-    path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+    path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 }
 {{/vendorExtensions.x-is-account-sid}}
 {{/queryParams}}
 {{#pathParams}}
-    path = strings.Replace(path, "{"+"{{paramName}}"+"}", {{^isString}}fmt.Sprint({{/isString}}{{paramName}}{{^isString}}){{/isString}}, -1)
+    path = strings.ReplaceAll(path, "{"+"{{paramName}}"+"}", {{^isString}}fmt.Sprint({{/isString}}{{paramName}}{{^isString}}){{/isString}})
 {{/pathParams}}
 
 data := url.Values{}
