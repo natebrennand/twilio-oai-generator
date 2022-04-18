@@ -196,7 +196,7 @@ func (c *ApiService) CreateCredentialAws(params *CreateCredentialAwsParams) (*Te
 
 func (c *ApiService) DeleteCredentialAws(Sid string) error {
 	path := "/v1/Credentials/AWS/{Sid}"
-	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
+	path = strings.ReplaceAll(path, "{"+"Sid"+"}", Sid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -213,7 +213,7 @@ func (c *ApiService) DeleteCredentialAws(Sid string) error {
 
 func (c *ApiService) FetchCredentialAws(Sid string) (*TestResponseObject, error) {
 	path := "/v1/Credentials/AWS/{Sid}"
-	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
+	path = strings.ReplaceAll(path, "{"+"Sid"+"}", Sid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -372,7 +372,7 @@ func (params *UpdateCredentialAwsParams) SetTestString(TestString string) *Updat
 
 func (c *ApiService) UpdateCredentialAws(Sid string, params *UpdateCredentialAwsParams) (*TestResponseObject, error) {
 	path := "/v1/Credentials/AWS/{Sid}"
-	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
+	path = strings.ReplaceAll(path, "{"+"Sid"+"}", Sid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})

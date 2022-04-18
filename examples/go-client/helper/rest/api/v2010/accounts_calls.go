@@ -43,9 +43,9 @@ func (params *CreateCallParams) SetTestArrayOfStrings(TestArrayOfStrings []strin
 func (c *ApiService) CreateCall(params *CreateCallParams) (*TestResponseObject, error) {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
 
 	data := url.Values{}
@@ -89,11 +89,11 @@ func (params *DeleteCallParams) SetPathAccountSid(PathAccountSid string) *Delete
 func (c *ApiService) DeleteCall(Sid string, params *DeleteCallParams) error {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{Sid}.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
+	path = strings.ReplaceAll(path, "{"+"Sid"+"}", Sid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -122,11 +122,11 @@ func (params *FetchCallParams) SetPathAccountSid(PathAccountSid string) *FetchCa
 func (c *ApiService) FetchCall(Sid string, params *FetchCallParams) (*TestResponseObject, error) {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{Sid}.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
+	path = strings.ReplaceAll(path, "{"+"Sid"+"}", Sid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})

@@ -53,11 +53,11 @@ func (params *CreateCallRecordingParams) SetRecordingStatusCallbackEvent(Recordi
 func (c *ApiService) CreateCallRecording(CallSid string, params *CreateCallRecordingParams) (*TestResponseObject, error) {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
+	path = strings.ReplaceAll(path, "{"+"CallSid"+"}", CallSid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -104,12 +104,12 @@ func (params *DeleteCallRecordingParams) SetPathAccountSid(PathAccountSid string
 func (c *ApiService) DeleteCallRecording(CallSid string, TestInteger int, params *DeleteCallRecordingParams) error {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings/{TestInteger}.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
-	path = strings.Replace(path, "{"+"TestInteger"+"}", fmt.Sprint(TestInteger), -1)
+	path = strings.ReplaceAll(path, "{"+"CallSid"+"}", CallSid)
+	path = strings.ReplaceAll(path, "{"+"TestInteger"+"}", fmt.Sprint(TestInteger))
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -138,12 +138,12 @@ func (params *FetchCallRecordingParams) SetPathAccountSid(PathAccountSid string)
 func (c *ApiService) FetchCallRecording(CallSid string, TestInteger int, params *FetchCallRecordingParams) (*TestResponseObject, error) {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings/{TestInteger}.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
-	path = strings.Replace(path, "{"+"TestInteger"+"}", fmt.Sprint(TestInteger), -1)
+	path = strings.ReplaceAll(path, "{"+"CallSid"+"}", CallSid)
+	path = strings.ReplaceAll(path, "{"+"TestInteger"+"}", fmt.Sprint(TestInteger))
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -215,11 +215,11 @@ func (c *ApiService) PageCallRecording(CallSid string, params *ListCallRecording
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings.json"
 
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
+	path = strings.ReplaceAll(path, "{"+"CallSid"+"}", CallSid)
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
@@ -364,12 +364,12 @@ func (params *UpdateCallRecordingParams) SetStatus(Status string) *UpdateCallRec
 func (c *ApiService) UpdateCallRecording(CallSid string, TestInteger int, params *UpdateCallRecordingParams) (*TestResponseObject, error) {
 	path := "/2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings/{TestInteger}.json"
 	if params != nil && params.PathAccountSid != nil {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", *params.PathAccountSid, -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", *params.PathAccountSid)
 	} else {
-		path = strings.Replace(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid(), -1)
+		path = strings.ReplaceAll(path, "{"+"AccountSid"+"}", c.requestHandler.Client.AccountSid())
 	}
-	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
-	path = strings.Replace(path, "{"+"TestInteger"+"}", fmt.Sprint(TestInteger), -1)
+	path = strings.ReplaceAll(path, "{"+"CallSid"+"}", CallSid)
+	path = strings.ReplaceAll(path, "{"+"TestInteger"+"}", fmt.Sprint(TestInteger))
 
 	data := url.Values{}
 	headers := make(map[string]interface{})
